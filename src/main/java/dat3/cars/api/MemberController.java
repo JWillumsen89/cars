@@ -31,6 +31,11 @@ public class MemberController {
     return memberService.getMemberByUsername(username, true);
   }
 
+  @GetMapping("/fn/{firstName}")
+  List<MemberResponse> getMembersByFirstName(@PathVariable String firstName) throws Exception {
+    return memberService.getMembersByFirstName(firstName, true);
+  }
+
   //ANONYMOUS
   //@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   @PostMapping

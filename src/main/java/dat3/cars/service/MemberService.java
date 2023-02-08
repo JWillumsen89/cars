@@ -78,4 +78,10 @@ public class MemberService {
     member.setRanking(value);
     memberRepository.save(member);
   }
+
+  public List<MemberResponse> getMembersByFirstName(String firstName, boolean includeAll) {
+    List<Member> members = memberRepository.findMembersByFirstName(firstName);
+
+    return members.stream().map(m -> new MemberResponse(m, includeAll)).toList();
+  }
 }
