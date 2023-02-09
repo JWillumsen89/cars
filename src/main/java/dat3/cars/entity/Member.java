@@ -1,5 +1,6 @@
 package dat3.cars.entity;
 
+import dat3.cars.dto.MemberRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

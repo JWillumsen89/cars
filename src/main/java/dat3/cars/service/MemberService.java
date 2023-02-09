@@ -21,19 +21,6 @@ public class MemberService {
     this.memberRepository = memberRepository;
   }
 
-  public List<MemberResponse> getMembers(boolean includeAll) {
-    List<Member> members = memberRepository.findAll();
-    //OLD SCHOOL STYLE
-    /* List<MemberResponse> memberResponses = new ArrayList<>();
-    for (Member m: members) {
-      MemberResponse mr = new MemberResponse(m, includeAll);
-      memberResponses.add(mr);
-    }
-   */
-    //LAMBDA METHOD
-    return members.stream().map(m -> new MemberResponse(m, includeAll)).toList();
-  }
-
   public MemberResponse addMember(MemberRequest memberRequest){
 
     if(memberRepository.existsById(memberRequest.getUsername())){
@@ -49,18 +36,32 @@ public class MemberService {
     return new MemberResponse(newMember, false);
   }
 
+  public List<MemberResponse> getMembers(boolean includeAll) {
+    List<Member> members = memberRepository.findAll();
+    //OLD SCHOOL STYLE
+    /* List<MemberResponse> memberResponses = new ArrayList<>();
+    for (Member m: members) {
+      MemberResponse mr = new MemberResponse(m, includeAll);
+      memberResponses.add(mr);
+    }
+   */
+    //LAMBDA METHOD
+    return members.stream().map(m -> new MemberResponse(m, includeAll)).toList();
+  }
+
+  public List<MemberResponse> getMembersByFirstName(String firstName, boolean includeAll) {
+    List<Member> members = memberRepository.findMembersByFirstName(firstName);
+
+    return members.stream().map(m -> new MemberResponse(m, includeAll)).toList();
+  }
+
   public MemberResponse getMemberByUsername(String username, boolean includeAll) {
-    Member member = memberRepository.findMemberByUsername(username);
+    Member member = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Member not found"));
     return new MemberResponse(member, includeAll);
   }
 
-
-  public void deleteByUsername(String username) {
-    memberRepository.deleteById(username);
-  }
-
   public ResponseEntity<Boolean> updateMemberDetails(MemberRequest body, String username) {
-    Member updateMember = memberRepository.findMemberByUsername(username);
+    Member updateMember = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Member not found"));
     updateMember.setUsername(body.getUsername());
     updateMember.setEmail(body.getEmail());
     updateMember.setFirstName(body.getFirstName());
@@ -74,14 +75,14 @@ public class MemberService {
   }
 
   public void setRankingValue(String username, int value) {
-    Member member = memberRepository.findMemberByUsername(username);
+    Member member = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Member not found"));;
     member.setRanking(value);
     memberRepository.save(member);
   }
 
-  public List<MemberResponse> getMembersByFirstName(String firstName, boolean includeAll) {
-    List<Member> members = memberRepository.findMembersByFirstName(firstName);
 
-    return members.stream().map(m -> new MemberResponse(m, includeAll)).toList();
+  public void deleteByUsername(String username) {
+    memberRepository.deleteById(username);
   }
+
 }
