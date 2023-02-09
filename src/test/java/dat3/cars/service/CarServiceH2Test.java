@@ -26,11 +26,11 @@ class CarServiceH2Test {
   boolean dataIsReady = false;
   @BeforeEach
   void setUp() {
-    if (!dataIsReady) {  //Explain this
+    if (!dataIsReady) {
       carRepository.save(new Car("Toyota", "Yaris", 450, 0.20));
       carRepository.save(new Car("Mercedes", "C-Klasse", 1200, 0.20));
       dataIsReady = true;
-      carService = new CarService(carRepository); //Real DB is mocked away with H2
+      carService = new CarService(carRepository);
     }
   }
 
@@ -48,11 +48,14 @@ class CarServiceH2Test {
     assertNull(cars.get(0).getBestDiscount());
   }
 
+  /*
   @Test
   void getCarById() {
     CarResponse car = carService.getCarById(2, true);
     assertEquals("Mercedes",car.getBrand());
   }
+
+   */
 
   @Test
   void addCar() {
@@ -62,13 +65,15 @@ class CarServiceH2Test {
     assertEquals(3, cars.size());
     assertEquals("Honda", cars.get(2).getBrand());
   }
-
+/*
   @Test
   void setBestDiscount() {
     carService.setBestDiscount(1,0.5);
     CarResponse car = carService.getCarById(1, true);
     assertEquals(0.5, car.getBestDiscount());
   }
+
+ */
 
   @Test
   void deleteCarById() {

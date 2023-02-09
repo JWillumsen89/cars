@@ -15,9 +15,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-//Transactional (rollback)
-//Includes what is necessary for JPA/Hibernate and ONLY that
-//Uses and in-memory database(H2)
 @DataJpaTest
 class MemberServiceH2Test {
 
@@ -30,12 +27,12 @@ class MemberServiceH2Test {
 
   @BeforeEach
   void setUp() {
-    if (!dataIsReady) {  //Explain this
+    if (!dataIsReady) {
       memberRepository.save(new Member("m1", "test12", "m1@a.dk", "aa", "Olsen",
           "xx vej 34", "Lyngby", "2800"));
       memberRepository.save(new Member("m2", "test12", "m2@a.dk", "bb", "hansen", "xx vej 34", "Lyngby", "2800"));
       dataIsReady = true;
-      memberService = new MemberService(memberRepository); //Real DB is mocked away with H2
+      memberService = new MemberService(memberRepository);
     }
   }
 
