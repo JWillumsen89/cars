@@ -4,8 +4,10 @@ import dat3.cars.dto.CarRequest;
 import dat3.cars.dto.CarResponse;
 import dat3.cars.entity.Car;
 import dat3.cars.repository.CarRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class CarService {
   }
 
   public CarResponse getCarById(int id, boolean includeAll) {
-    Car car = carRepository.getReferenceById(id);
+    Car car = carRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Car not found"));
     return new CarResponse(car, includeAll);
   }
 
