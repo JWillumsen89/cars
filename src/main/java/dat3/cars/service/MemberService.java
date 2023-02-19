@@ -33,7 +33,7 @@ public class MemberService {
     Member newMember = MemberRequest.getMemberEntity(memberRequest);
     newMember = memberRepository.save(newMember);
 
-    return new MemberResponse(newMember, false);
+    return new MemberResponse(newMember, false, false);
   }
 
   public List<MemberResponse> getMembers(boolean includeAll) {
@@ -46,18 +46,18 @@ public class MemberService {
     }
    */
     //LAMBDA METHOD
-    return members.stream().map(m -> new MemberResponse(m, includeAll)).toList();
+    return members.stream().map(m -> new MemberResponse(m, false, true)).toList();
   }
 
   public List<MemberResponse> getMembersByFirstName(String firstName, boolean includeAll) {
     List<Member> members = memberRepository.findMembersByFirstName(firstName);
 
-    return members.stream().map(m -> new MemberResponse(m, includeAll)).toList();
+    return members.stream().map(m -> new MemberResponse(m, includeAll, true)).toList();
   }
 
   public MemberResponse getMemberByUsername(String username, boolean includeAll) {
     Member member = memberRepository.findById(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Member not found"));
-    return new MemberResponse(member, includeAll);
+    return new MemberResponse(member, includeAll, true);
   }
 
   public ResponseEntity<Boolean> updateMemberDetails(MemberRequest body, String username) {

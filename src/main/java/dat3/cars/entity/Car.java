@@ -1,19 +1,21 @@
 package dat3.cars.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Car {
   @Id
@@ -39,6 +41,10 @@ public class Car {
   @Column(name = "last_edited")
   @UpdateTimestamp
   private LocalDateTime lastEdited;
+
+  @JsonIgnore
+  @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+  private List<Reservation> reservations;
   public Car(String brand, String model, double pricePrDay, double bestDiscount) {
     this.brand = brand;
     this.model = model;

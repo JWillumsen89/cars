@@ -2,6 +2,7 @@ package dat3.cars.api;
 
 import dat3.cars.dto.CarRequest;
 import dat3.cars.dto.CarResponse;
+import dat3.cars.entity.Car;
 import dat3.cars.service.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,4 +54,5 @@ public class CarController {
   void deleteCarById(@PathVariable int id) {
     carService.deleteCarById(id);
   }
+
 }

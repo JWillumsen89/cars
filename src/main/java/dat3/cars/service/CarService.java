@@ -58,4 +58,9 @@ public class CarService {
   public void deleteCarById(int id) {
     carRepository.deleteById(id);
   }
+
+  public List<CarResponse> findByBrandAndModel(String brand, String model, boolean includeAll) {
+    List<Car> cars = carRepository.findCarByBrandAndModel(model,brand);
+    return cars.stream().map(c -> new CarResponse(c, includeAll)).toList();
+  }
 }

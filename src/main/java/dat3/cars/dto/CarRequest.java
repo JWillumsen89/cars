@@ -1,7 +1,7 @@
 package dat3.cars.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import dat3.cars.entity.Car;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
