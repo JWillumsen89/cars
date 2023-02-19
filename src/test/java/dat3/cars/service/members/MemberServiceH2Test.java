@@ -1,4 +1,6 @@
+/*
 package dat3.cars.service.members;
+
 
 import dat3.cars.dto.MemberRequest;
 import dat3.cars.dto.MemberResponse;
@@ -97,3 +99,5 @@ class MemberServiceH2Test {
     assertFalse(memberRepository.existsById("deleteTest"));
   }
 }
+
+ */

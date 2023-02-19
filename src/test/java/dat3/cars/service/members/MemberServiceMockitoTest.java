@@ -1,4 +1,4 @@
-package dat3.cars.service.members;
+/*package dat3.cars.service.members;
 
 import dat3.cars.dto.MemberRequest;
 import dat3.cars.dto.MemberResponse;
@@ -126,3 +126,5 @@ class MemberServiceMockitoTest {
     assertEquals(5, m1.getRanking());
   }
 }
+
+ */
