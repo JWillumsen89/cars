@@ -22,7 +22,7 @@ public class CarController {
   //ADMIN - MEMBER IF INCLUDE ALL IS FALSE
   @GetMapping
   List<CarResponse> getCars() {
-    return carService.getCars(false);
+    return carService.getCars(true);
   }
 
   //ADMIN - MEMBER IF INCLUDE ALL IS FALSE

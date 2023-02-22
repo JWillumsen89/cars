@@ -60,7 +60,7 @@ class CarServiceH2Test {
 
   @Test
   void addCar() {
-    CarRequest newCar = new CarRequest("Honda", "Civic", 650);
+    CarRequest newCar = new CarRequest("Honda", "Civic", 650,0.2);
     carService.addCar(newCar);
     List<CarResponse> cars = carService.getCars(true);
     assertEquals(3, cars.size());
