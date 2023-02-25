@@ -49,12 +49,12 @@ public class DeveloperData implements ApplicationRunner {
 
 
     cars = new ArrayList<>(Arrays.asList(
-        new Car("Toyota", "Yaris", 450, 0.20),
-        new Car("Ford", "Mondeo", 800, 0.20),
-        new Car("Fiat", "Multipla", 600, 0.20),
-        new Car("Citroen", "C5", 700, 0.20),
-        new Car("Mercedes", "C-Klasse", 1200, 0.20),
-        new Car("BMW", "5", 1200, 0.20)
+        new Car("Toyota", "Yaris", 450, 150),
+        new Car("Ford", "Mondeo", 800, 200),
+        new Car("Fiat", "Multipla", 600, 200),
+        new Car("Citroen", "C5", 700, 200),
+        new Car("Mercedes", "C-Klasse", 1200, 300),
+        new Car("BMW", "5", 1200, 350)
     ));
 
     members = new ArrayList<>(Arrays.asList(
