@@ -46,7 +46,9 @@ public class MemberService {
     }
    */
     //LAMBDA METHOD
-    return members.stream().map(m -> new MemberResponse(m, false, true)).toList();
+    return members.stream()
+        .map(m -> new MemberResponse(m, false, true))
+        .toList();
   }
 
   public List<MemberResponse> getMembersByFirstName(String firstName, boolean includeAll) {
