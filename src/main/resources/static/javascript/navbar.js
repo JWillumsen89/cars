@@ -8,6 +8,7 @@ function createButton(id, text, onclick) {
     button.addEventListener('click', onclick);
     return button;
 }
+
 //Adds buttons to navbar
 navbarContent.appendChild(createButton('home-btn', 'Home', showHomePage));
 navbarContent.appendChild(createButton('cars-btn', 'Cars', showCarsPage));
