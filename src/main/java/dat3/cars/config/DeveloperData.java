@@ -48,14 +48,39 @@ public class DeveloperData implements ApplicationRunner {
 
 
 
-    cars = new ArrayList<>(Arrays.asList(
+    List<Car> cars = new ArrayList<>(Arrays.asList(
         new Car("Toyota", "Yaris", 450, 150),
         new Car("Ford", "Mondeo", 800, 200),
         new Car("Fiat", "Multipla", 600, 200),
         new Car("Citroen", "C5", 700, 200),
         new Car("Mercedes", "C-Klasse", 1200, 300),
-        new Car("BMW", "5", 1200, 350)
+        new Car("BMW", "5", 1200, 350),
+        new Car("Honda", "Civic", 550, 160),
+        new Car("Volkswagen", "Golf", 650, 180),
+        new Car("Audi", "A4", 1000, 250),
+        new Car("Hyundai", "Elantra", 500, 150),
+        new Car("Mazda", "3", 600, 180),
+        new Car("Kia", "Optima", 550, 170),
+        new Car("Subaru", "Impreza", 650, 200),
+        new Car("Lexus", "ES", 1100, 280),
+        new Car("Jeep", "Cherokee", 800, 220),
+        new Car("Volvo", "S60", 950, 240),
+        new Car("Nissan", "Sentra", 550, 160),
+        new Car("Chevrolet", "Cruze", 600, 180),
+        new Car("Mitsubishi", "Lancer", 500, 150),
+        new Car("Peugeot", "308", 700, 190),
+        new Car("Renault", "Megane", 650, 180),
+        new Car("Tesla", "Model S", 600, 220),
+        new Car("Porsche", "911", 1200, 280),
+        new Car("Jaguar", "XF", 1000, 230),
+        new Car("Land Rover", "Range Rover", 1200, 290),
+        new Car("Ferrari", "458 Italia", 900, 200),
+        new Car("Maserati", "GranTurismo", 800, 190),
+        new Car("Lamborghini", "Aventador", 1100, 250),
+        new Car("Bugatti", "Chiron", 1600, 440),
+        new Car("McLaren", "720S", 900, 200)
     ));
+
 
     members = new ArrayList<>(Arrays.asList(
         new Member("HansiUser", passwordUsedByAll, "h@ansi.dk", "Hans", "Zimmer", "Hansi Street", "Hanstown", "1000"),
