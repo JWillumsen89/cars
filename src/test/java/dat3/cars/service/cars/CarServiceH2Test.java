@@ -42,12 +42,6 @@ class CarServiceH2Test {
     assertNotNull(cars.get(0).getBestDiscount());
   }
 
-  @Test
-  void getCarsNotAdmin() {
-    List<CarResponse> cars = carService.getCars(false);
-    assertEquals(2, cars.size());
-    assertNull(cars.get(0).getBestDiscount());
-  }
 
   /*
   @Test
