@@ -39,11 +39,11 @@ public class CarService {
   }
 
   public ResponseEntity<Boolean> updateCarDetails(CarRequest body, int id) {
-    Car updateCar = carRepository.getReferenceById(id);
-    updateCar.setId(body.getId());
+    Car updateCar = carRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Car with that ID not found"));
     updateCar.setBrand(body.getBrand());
     updateCar.setModel(body.getModel());
     updateCar.setPricePrDay(body.getPricePrDay());
+    updateCar.setBestDiscount(body.getBestDiscount());
 
     carRepository.save(updateCar);
     return ResponseEntity.ok(true);
