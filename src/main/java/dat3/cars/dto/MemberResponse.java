@@ -47,13 +47,13 @@ public class MemberResponse {
       this.approved = m.isApproved();
       this.ranking = m.getRanking();
     }
-   if (includeReservations) {
-     this.reservations = new ArrayList<>();
-     for (Reservation reservation: m.getReservations()){
-       this.reservations.add(new ReservationResponse(reservation));
-     }
+    if (includeReservations) {
+      this.reservations = new ArrayList<>();
+      for (Reservation reservation : m.getReservations()) {
+        this.reservations.add(new ReservationResponse(reservation));
+      }
 
-   }
+    }
 
   }
 }

@@ -47,7 +47,6 @@ public class DeveloperData implements ApplicationRunner {
   public void testData() {
 
 
-
     List<Car> cars = new ArrayList<>(Arrays.asList(
         new Car("Toyota", "Yaris", 450, 150),
         new Car("Ford", "Mondeo", 800, 200),
@@ -78,16 +77,74 @@ public class DeveloperData implements ApplicationRunner {
         new Car("Maserati", "GranTurismo", 800, 190),
         new Car("Lamborghini", "Aventador", 1100, 250),
         new Car("Bugatti", "Chiron", 1600, 440),
-        new Car("McLaren", "720S", 900, 200)
+        new Car("McLaren", "720S", 900, 200),
+        new Car("Toyota", "Camry", 700, 220),
+        new Car("Ford", "Fusion", 750, 200),
+        new Car("Chevrolet", "Malibu", 650, 180),
+        new Car("Nissan", "Altima", 600, 170),
+        new Car("Honda", "Accord", 650, 190),
+        new Car("Mazda", "6", 700, 200),
+        new Car("Kia", "Stinger", 800, 220),
+        new Car("Hyundai", "Sonata", 600, 170),
+        new Car("Volkswagen", "Passat", 700, 190),
+        new Car("Audi", "A6", 1000, 250),
+        new Car("BMW", "7", 1200, 300),
+        new Car("Mercedes", "S-Klasse", 1400, 350),
+        new Car("Lexus", "LS", 1200, 300),
+        new Car("Jaguar", "XJ", 1000, 240),
+        new Car("Porsche", "Panamera", 1100, 270),
+        new Car("Tesla", "Model X", 700, 250),
+        new Car("Maserati", "Quattroporte", 900, 220),
+        new Car("Ferrari", "F8 Tributo", 1000, 280),
+        new Car("Lamborghini", "Huracan", 1100, 290),
+        new Car("Bugatti", "Veyron", 1200, 430),
+        new Car("McLaren", "570S", 850, 210),
+        new Car("Aston Martin", "DB11", 1100, 250),
+        new Car("Bentley", "Continental GT", 1200, 270),
+        new Car("Rolls-Royce", "Ghost", 1400, 300),
+        new Car("Lotus", "Elise", 500, 150),
+        new Car("Alfa Romeo", "Giulia", 800, 220),
+        new Car("Genesis", "G70", 700, 200),
+        new Car("Infiniti", "Q50", 650, 180),
+        new Car("Cadillac", "CT5", 700, 190),
+        new Car("Lincoln", "MKZ", 650, 180)
     ));
 
 
-    members = new ArrayList<>(Arrays.asList(
-        new Member("HansiUser", passwordUsedByAll, "h@ansi.dk", "Hans", "Zimmer", "Hansi Street", "Hanstown", "1000"),
-        new Member("SvenneUser", passwordUsedByAll, "s@vend.dk", "Sven", "Sved", "Svengade", "Svendborg", "4400"),
-        new Member("KarstennerUser", passwordUsedByAll, "k@arsten.dk", "Karsten", "Jensen", "Jensen vej", "København", "1205"),
-        new Member("KarenMadUSer", passwordUsedByAll, "k@aren.dk", "Karen", "Malkeko", "Disney Hovedgade", "Disney", "9999")
+    ArrayList<Member> members = new ArrayList<>(Arrays.asList(
+        new Member("JonSnow", passwordUsedByAll, "jon.snow@gmail.com", "Jon", "Snow", "Castle Black", "The Wall", "10000"),
+        new Member("DaenerysTargaryen", passwordUsedByAll, "d.targaryen@gmail.com", "Daenerys", "Targaryen", "Dragonstone", "Westeros", "12345"),
+        new Member("TyrionLannister", passwordUsedByAll, "tyrion.lannister@gmail.com", "Tyrion", "Lannister", "Casterly Rock", "Westeros", "12345"),
+        new Member("AryaStark", passwordUsedByAll, "arya.stark@gmail.com", "Arya", "Stark", "Winterfell", "Westeros", "12345"),
+        new Member("BranStark", passwordUsedByAll, "bran.stark@gmail.com", "Bran", "Stark", "Winterfell", "Westeros", "12345"),
+        new Member("SansaStark", passwordUsedByAll, "sansa.stark@gmail.com", "Sansa", "Stark", "Winterfell", "Westeros", "12345"),
+        new Member("CerseiLannister", passwordUsedByAll, "cersei.lannister@gmail.com", "Cersei", "Lannister", "King's Landing", "Westeros", "12345"),
+        new Member("JaimeLannister", passwordUsedByAll, "jaime.lannister@gmail.com", "Jaime", "Lannister", "Casterly Rock", "Westeros", "12345"),
+        new Member("TheonGreyjoy", passwordUsedByAll, "theon.greyjoy@gmail.com", "Theon", "Greyjoy", "Pyke", "Iron Islands", "54321"),
+        new Member("EuronGreyjoy", passwordUsedByAll, "euron.greyjoy@gmail.com", "Euron", "Greyjoy", "Pyke", "Iron Islands", "54321"),
+        new Member("YaraGreyjoy", passwordUsedByAll, "yara.greyjoy@gmail.com", "Yara", "Greyjoy", "Pyke", "Iron Islands", "54321"),
+        new Member("JorahMormont", passwordUsedByAll, "jorah.mormont@gmail.com", "Jorah", "Mormont", "Bear Island", "Westeros", "12345"),
+        new Member("DavosSeaworth", passwordUsedByAll, "davos.seaworth@gmail.com", "Davos", "Seaworth", "Storm's End", "Westeros", "12345"),
+        new Member("Melisandre", passwordUsedByAll, "melisandre@gmail.com", "Melisandre", "", "Asshai", "Essos", "99999"),
+        new Member("SamwellTarly", passwordUsedByAll, "samwell.tarly@gmail.com", "Samwell", "Tarly", "Horn Hill", "Westeros", "12345"),
+        new Member("BrienneTarth", passwordUsedByAll, "brienne.tarth@gmail.com", "Brienne", "Tarth", "Evenfall Hall", "Westeros", "12345")
     ));
+    members.get(0).setRanking(9);
+    members.get(1).setRanking(7);
+    members.get(2).setRanking(6);
+    members.get(3).setRanking(4);
+    members.get(4).setRanking(3);
+    members.get(5).setRanking(5);
+    members.get(6).setRanking(8);
+    members.get(7).setRanking(9);
+    members.get(8).setRanking(1);
+    members.get(9).setRanking(3);
+    members.get(10).setRanking(5);
+    members.get(11).setRanking(7);
+    members.get(12).setRanking(6);
+    members.get(13).setRanking(10);
+    members.get(14).setRanking(6);
+    members.get(15).setRanking(8);
 
 
     carRepository.saveAll(cars);
@@ -101,8 +158,6 @@ public class DeveloperData implements ApplicationRunner {
     makeReservations(r3);
     setupUserWithRoleUsers();
   }
-
-
 
 
   /*****************************************************************************************

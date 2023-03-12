@@ -47,7 +47,7 @@ public class MemberService {
    */
     //LAMBDA METHOD
     return members.stream()
-        .map(m -> new MemberResponse(m, false, true))
+        .map(m -> new MemberResponse(m, true, true))
         .toList();
   }
 

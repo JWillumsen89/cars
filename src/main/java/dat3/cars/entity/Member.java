@@ -44,7 +44,7 @@ public class Member extends UserWithRoles {
 
   public Member(String user, String password, String email,
                 String firstName, String lastName, String street, String city, String zip) {
-    super(user,password,email);
+    super(user, password, email);
     this.firstName = firstName;
     this.lastName = lastName;
     this.street = street;
