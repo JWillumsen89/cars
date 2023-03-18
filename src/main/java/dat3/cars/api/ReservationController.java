@@ -26,6 +26,13 @@ public class ReservationController {
     return reservationService.getReservations();
   }
 
+  @GetMapping("/{username}")
+  List<ReservationResponse> getReservationsWithUsername(@PathVariable String username) {
+    List<ReservationResponse> list = reservationService.getReservationsWithUsername(username);
+    System.out.println(list.size());
+    return list;
+  }
+
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
   Reservation createReservation(@RequestBody ReservationRequest reservationRequest) {
     return reservationService.createReservation(reservationRequest);

@@ -145,12 +145,28 @@ public class DeveloperData implements ApplicationRunner {
     members.get(13).setRanking(10);
     members.get(14).setRanking(6);
     members.get(15).setRanking(8);
+    members.get(0).addRole(Role.USER);
+    members.get(1).addRole(Role.USER);
+    members.get(2).addRole(Role.USER);
+    members.get(3).addRole(Role.USER);
+    members.get(4).addRole(Role.USER);
+    members.get(5).addRole(Role.USER);
+    members.get(6).addRole(Role.USER);
+    members.get(7).addRole(Role.USER);
+    members.get(8).addRole(Role.USER);
+    members.get(9).addRole(Role.USER);
+    members.get(10).addRole(Role.USER);
+    members.get(11).addRole(Role.USER);
+    members.get(12).addRole(Role.USER);
+    members.get(13).addRole(Role.USER);
+    members.get(14).addRole(Role.USER);
+    members.get(15).addRole(Role.USER);
 
 
     carRepository.saveAll(cars);
     memberRepository.saveAll(members);
 
-    ReservationRequest r1 = new ReservationRequest(LocalDate.of(2023, 12, 24), cars.get(2).getId(), members.get(1).getUsername());
+    ReservationRequest r1 = new ReservationRequest(LocalDate.of(2023, 12, 24), cars.get(2).getId(), members.get(0).getUsername());
     ReservationRequest r2 = new ReservationRequest(LocalDate.of(2023, 12, 24), cars.get(1).getId(), members.get(2).getUsername());
     ReservationRequest r3 = new ReservationRequest(LocalDate.of(2023, 11, 24), cars.get(1).getId(), members.get(2).getUsername());
     makeReservations(r1);

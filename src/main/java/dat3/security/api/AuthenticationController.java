@@ -30,10 +30,10 @@ import static java.util.stream.Collectors.joining;
 @CrossOrigin
 public class AuthenticationController {
 
-  @Value("${app.token-issuer}")
+  @Value("${app.token_issuer}")
   private String tokenIssuer;
 
-  @Value("${app.token-expiration}")
+  @Value("${app.token_expiration}")
   private long tokenExpiration;
   private final AuthenticationManager authenticationManager;
 

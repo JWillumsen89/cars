@@ -5,6 +5,7 @@ import dat3.cars.dto.MemberRequest;
 import dat3.cars.dto.MemberResponse;
 import dat3.cars.service.MemberService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class MemberController {
   }
 
   //ADMIN ONLY
+  @PreAuthorize("hasAuthority('ADMIN')")
   @GetMapping
   List<MemberResponse> getMembers(){
     return memberService.getMembers(true);
@@ -61,14 +63,4 @@ public class MemberController {
   void deleteMemberByUsername(@PathVariable String username) {
     memberService.deleteByUsername(username);
   }
-
-
-
 }
-
-
-
-
-
-
-
