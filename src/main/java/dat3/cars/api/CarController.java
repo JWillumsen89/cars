@@ -24,14 +24,6 @@ public class CarController {
     this.carService = carService;
   }
 
-  //ADMIN - MEMBER IF INCLUDE ALL IS FALSE
-  /*
-  @PreAuthorize("hasAuthority('ADMIN')")
-  @GetMapping
-  List<CarResponse> getCars() {
-    return carService.getCars(true);
-  }
-   */
   @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
   @GetMapping
   List<CarResponse> getCars() {
@@ -49,30 +41,41 @@ public class CarController {
 
   //ADMIN - MEMBER IF INCLUDE ALL IS FALSE
 
+  @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
   @GetMapping("/{id}")
   CarResponse getCarById(@PathVariable int id) throws Exception {
-    return carService.getCarById(id, true);
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+    //Checking if it's an ADMIN or USER
+    boolean isAdmin = authentication.getAuthorities().stream()
+        .map(GrantedAuthority::getAuthority)
+        .anyMatch(role -> role.equals("ADMIN"));
+    System.out.println(isAdmin);
+    return carService.getCarById(id, isAdmin);
   }
 
-  //ANONYMOUS
+  @PreAuthorize("hasAuthority('ADMIN')")
   @PostMapping
   CarResponse addCar(@RequestBody CarRequest body) {
     return carService.addCar(body);
   }
 
   //ADMIN
+  @PreAuthorize("hasAuthority('ADMIN')")
   @PutMapping("/{id}")
   ResponseEntity<Boolean> editCar(@RequestBody CarRequest body, @PathVariable int id) {
     return carService.updateCarDetails(body, id);
   }
 
   //ADMIN
+  @PreAuthorize("hasAuthority('ADMIN')")
   @PatchMapping("/bestDiscount/{id}/{value}")
   void setBestDiscount(@PathVariable int id, @PathVariable double value) {
     carService.setBestDiscount(id, value);
   }
 
   //ADMIN
+  @PreAuthorize("hasAuthority('ADMIN')")
   @DeleteMapping("/{id}")
   void deleteCarById(@PathVariable int id) {
     carService.deleteCarById(id);
